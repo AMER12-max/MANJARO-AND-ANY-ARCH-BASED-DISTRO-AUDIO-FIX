@@ -1,0 +1,9 @@
+# First downgrade to kernel 5.4 LTS
+# Then run these commands
+sudo pacman -Syu && sudo pacman -Syyu
+
+sudo pacman -S  sof-firmware alsa-ucm-conf
+
+echo “options snd-hda-intel dmic_detect=0” | sudo tee /etc/modprobe.d/alsa-fix.conf
+
+reboot
